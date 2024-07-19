@@ -12,7 +12,7 @@ from .exceptions import FileNotAllowed
 from .interfaces import IFileStorage
 from .registry import register_file_storage_impl
 
-from ..pyramid_storage.s3 import S3FileStorage
+from pyramid_storage.s3 import S3FileStorage
 
 import logging
 log = logging.getLogger(__name__)
