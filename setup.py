@@ -44,7 +44,7 @@ setup(
     cmdclass={'test': PyTest},
     version='2.0',
     license='BSD',
-    author='Dan Jacob',
+    author='Serge Korchazhkin',
     author_email='lord@const.ru',
     description='File storage package for Pyramid',
     long_description=__doc__,
