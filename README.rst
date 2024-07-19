@@ -36,6 +36,6 @@ GitHub Install
 
 Installing the latest version from Github:
 
-git clone https://github.com/go-live-trip/pyramid_storage
+git clone https://github.com/go-live-trip/pyramid_storage<br>
 cd pyramid_storage
 python setup.py install
