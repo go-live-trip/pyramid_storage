@@ -30,3 +30,12 @@ Releasing
 2. Create a new tag `X.Y.Z` (*This tag will be created from the target when you publish this release.*)
 3. Generate release notes
 4. Publish release
+
+GitHub Install
+=================
+
+Installing the latest version from Github:
+
+git clone https://github.com/go-live-trip/pyramid_storage
+cd pyramid_storage
+python setup.py install
