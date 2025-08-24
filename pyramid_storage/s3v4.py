@@ -209,7 +209,7 @@ class S3V4FileStorage(S3FileStorage):
         return filename
 
 
-    def url(self, filename, folder=None):
+    def url(self, filename, folder=None, expiration=3600):
         """
         URL (Uniform Resource Locator) — это адрес ресурса в сети Интернет.
         """
@@ -220,7 +220,7 @@ class S3V4FileStorage(S3FileStorage):
                 'Bucket': self.bucket_name,
                 'Key': f"{folder}{filename}"
             },
-            ExpiresIn=3600
+            ExpiresIn=expiration
         )
 
         return response
