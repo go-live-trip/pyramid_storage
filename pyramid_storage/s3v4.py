@@ -214,14 +214,20 @@ class S3V4FileStorage(S3FileStorage):
         URL (Uniform Resource Locator) — это адрес ресурса в сети Интернет.
         """
         folder = folder and folder + '/' or ''
-        response = self.get_resource().generate_presigned_url(
-            'get_object',
-            Params={
-                'Bucket': self.bucket_name,
-                'Key': f"{folder}{filename}"
-            },
-            ExpiresIn=expiration
-        )
-
-        return response
+        try:
+            response = self.get_resource().generate_presigned_url(
+                'get_object',
+                Params={
+                    'Bucket': self.bucket_name,
+                    'Key': f"{folder}{filename}"
+                },
+                ExpiresIn=expiration
+            )
+            return response
+        except NoCredentialsError:
+            print("Учетные данные недоступны.")
+            return None
+        except Exception as e:
+            print(f"Ошибка при создании предварительно заданного URL-адреса для загрузки: {e}")
+            return None
 
