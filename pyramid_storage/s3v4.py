@@ -147,9 +147,9 @@ class S3V4FileStorage(S3FileStorage):
         response = self.get_resource().list_objects_v2(Bucket=self.bucket_name, Prefix=filename)
 
         if 'Contents' in response:
-            return True
-        else:
-            return False
+            for key in response['Contents']:
+                return {key['Key']}
+        return False
 
 
     def save(self, fs, folder=None, randomize=False, extensions=None):
