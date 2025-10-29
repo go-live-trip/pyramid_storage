@@ -182,7 +182,7 @@ class S3V4FileStorage(S3FileStorage):
         return filename
 
 
-    def save_image(self, obj, folder=None, extensions='png'):
+    def save_image(self, obj, folder=None, randomize=False, extensions='png'):
         """
         :параметр obj: **cgi.FieldStorage** объект имя файла
         :параметр folder: относительный путь к подпапке
@@ -199,6 +199,8 @@ class S3V4FileStorage(S3FileStorage):
             raise FileNotAllowed()
 
         filename = f"{uuid.uuid4()}.{extensions}"
+        if randomize:
+            filename = f"{randomize}.{extensions}"
         
         self.get_resource().upload_fileobj(
             Fileobj=obj,
